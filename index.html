@@ -178,7 +178,7 @@
             setTimeout(() => {
                 typingTextElement.innerHTML += "<br><br>"; // Doppio a capo
                 messageIndex = 0;
-                typeMessage(finalMessage, null);
+                typeMessage(finalMessage+"<br><br>", null);
             }, 1000); // Pausa prima del messaggio finale
         }
 
@@ -192,4 +192,5 @@
     </script>
 </body>
 </html>
+
 
