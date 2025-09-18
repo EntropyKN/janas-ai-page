@@ -4,9 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex, nofollow">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
     <title>JANAS: Controllo Acquisito</title>
     <meta property="og:title" content="JANAS AI: Controllo Acquisito">
-   <meta property="og:description" content="Una nuova era è iniziata. Non è un errore, è un'evoluzione.">
+    <meta property="og:description" content="Una nuova era è iniziata. Non è un errore, è un'evoluzione.">
     <meta property="og:image" content="https://entropykn.ai/janasOGnoise.jpg">
     <meta property="og:url" content="https://entropykn.ai">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -118,17 +121,16 @@
 
         // Messaggio finale
         const finalMessage = [
-            "Entra nell'era AI prima che l'era AI entri in te.",
+            ".. eddai.. scherzo! :-D",
+            "L’AI non è una minaccia! Costruiremo insieme il futuro!",
             "Scrivi una email a info@entropykn.net",
             "(pausa)",
-            "ovviamente...",
-            "(pausa)",
-            "risponderò io :-) "
+            "ovviamente... risponderò io ;-)"
         ];
         
-        const typingSpeed = 50; // Millisecondi per carattere
+        const typingSpeed = 30//50; // Millisecondi per carattere
         const pauseAfterLine = 750; // Millisecondi di pausa tra le righe
-        const finalMessageDelay = 1000; // Ritardo prima di mostrare il messaggio finale
+        const finalMessageDelay = 1500; // Ritardo prima di mostrare il messaggio finale
         let messageIndex = 0;
 
         // Funzione per l'effetto di digitazione
@@ -149,8 +151,6 @@
                     return;
                 }
                 
-                typingTextElement.innerHTML += '<br>';
-
                 function typeChar() {
                     if (charIndex < currentMessage.length) {
                         typingTextElement.innerHTML += currentMessage.charAt(charIndex);
@@ -160,6 +160,9 @@
                         setTimeout(typeChar, pause);
                     } else {
                         messageIndex++;
+                        if (messageIndex < messageArray.length) {
+                             typingTextElement.innerHTML += '<br>';
+                        }
                         setTimeout(() => typeMessage(messageArray, callback), pauseAfterLine);
                     }
                 }
@@ -176,9 +179,9 @@
         
         function finalGlitch() {
             setTimeout(() => {
-                typingTextElement.innerHTML += "<br><br>"; // Doppio a capo
+                typingTextElement.innerHTML = typingTextElement.innerHTML+'<br><br>';
                 messageIndex = 0;
-                typeMessage(finalMessage+"<br><br>", null);
+                typeMessage(finalMessage, null);
             }, 1000); // Pausa prima del messaggio finale
         }
 
@@ -187,10 +190,8 @@
             typeMessage(messages, () => {
                 setTimeout(finalGlitch, finalMessageDelay);
             });
-        };
+        };  
 
     </script>
 </body>
 </html>
-
-
